@@ -1,0 +1,21 @@
+# dependencies and builds
+node_modules/
+.next/
+out/
+coverage/
+
+# local environment and logs
+.env*
+!.env.example
+*.log
+
+# generated evidence
+output/playwright/
+test-results/
+playwright-report/
+.playwright-cli/
+
+# operating systems and editors
+.DS_Store
+Thumbs.db
+*.tsbuildinfo
