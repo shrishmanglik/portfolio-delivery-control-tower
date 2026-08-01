@@ -1,12 +1,13 @@
 import { describe, expect, it } from "vitest";
 import { engagements } from "@/src/domain/fixtures";
-import { acceptSyntheticFinancialSnapshot, applyPortfolioImport, buildPortfolioRows, recordDecision } from "./portfolio-service";
+import { applyPortfolioImport, buildPortfolioRows, buildSyntheticFinancialCandidate, recordDecision, validateSyntheticFinancialSnapshot } from "./portfolio-service";
 
 describe("portfolio service journey", () => {
   it("moves stale financial evidence from unknown into deterministic non-green states", () => {
     expect(buildPortfolioRows(engagements).every((row) => row.health.state === "unknown")).toBe(true);
-    const validated = acceptSyntheticFinancialSnapshot(engagements, "2026-08-01T13:00:00.000Z");
-    const rows = buildPortfolioRows(validated);
+    const accepted = validateSyntheticFinancialSnapshot(engagements, "2026-08-01T13:00:00.000Z");
+    expect(accepted.accepted).toBe(true);
+    const rows = buildPortfolioRows(accepted.data);
     expect(rows.find((row) => row.engagement.id === "eng-hcp-education")?.health.state).toBe("at-risk");
     expect(rows.find((row) => row.engagement.id === "eng-patient-support")?.health.state).toBe("at-risk");
     expect(rows.find((row) => row.engagement.id === "eng-payer-update")?.health.state).toBe("unknown");
@@ -23,5 +24,14 @@ describe("portfolio service journey", () => {
     expect(rejected.accepted).toBe(false);
     expect(rejected.data).toBe(engagements);
     expect(rejected.errors.map((error) => error.path)).toEqual(expect.arrayContaining(["[0].targetEnd", "[0].financial.currency"]));
+  });
+
+  it("routes the mocked adapter through the full import validator", () => {
+    const candidate = buildSyntheticFinancialCandidate(engagements, "2026-08-01T13:00:00.000Z") as Array<Record<string, unknown>>;
+    const invalidCandidate = candidate.map((engagement, index) => index === 0 ? { ...engagement, commitments: undefined } : engagement);
+    const rejected = applyPortfolioImport(engagements, invalidCandidate);
+    expect(rejected.accepted).toBe(false);
+    expect(rejected.data).toBe(engagements);
+    expect(rejected.errors.some((error) => error.path.includes("commitments"))).toBe(true);
   });
 });

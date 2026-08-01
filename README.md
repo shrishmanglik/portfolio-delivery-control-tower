@@ -47,7 +47,7 @@ Next.js 16 App Router + React 19 + TypeScript
 - Zustand owns reversible local demo state.
 - React Hook Form + Zod enforce review authority and field contracts.
 - Versioned Next.js route handlers expose portfolio and review boundaries.
-- The proposed Supabase migration uses RLS on every table and makes receipts/audit events append-only.
+- The proposed Supabase migration uses RLS on every table, composite tenant/parent keys, role-scoped writes, and append-only decisions/receipts/audit events.
 
 See [architecture](docs/architecture.md), [security and privacy](docs/security-privacy.md), and the [operator runbook](docs/operator-runbook.md).
 
@@ -85,14 +85,14 @@ npm.cmd run lint
 npm.cmd run build
 ```
 
-The mutation control disables the source-integrity detector, requires the critical suite to fail, restores the detector, and requires the clean control to pass. The repository also tests rejected-import rollback, high-risk separation of duties, blocked-work completeness, scope invalidation, stable receipts, synthetic-data boundaries, and RLS coverage.
+The mutation control disables the source-integrity detector, requires the critical suite to fail, restores the detector, and requires the clean control to pass. The repository also tests complete nested-import validation, rejected-import rollback, high-risk separation of duties, blocked-work completeness, scope invalidation, stable receipts, synthetic-data boundaries, tenant-bound foreign keys, role-aware RLS writes, and RLS-checker mutations.
 
 ## Security and privacy
 
 - Synthetic fixtures only; every account is visibly marked `(synthetic)`.
 - No credentials, provider configuration, customer identifiers, or production endpoints.
 - Least-privilege tenant boundary in the proposed persistence contract.
-- RLS enabled for every proposed table and checked by a deterministic test.
+- RLS enabled for every proposed table; role-aware writes and tenant-bound parent keys are checked by a mutation-sensitive deterministic test.
 - High-risk self-approval rejected in Zod and by a proposed SQL constraint.
 - Review receipts and audit events are append-only in the proposed schema.
 - Retention, SSO, residency, regulatory classification, and export policy remain `UNKNOWN` pending an owning organization's decisions.

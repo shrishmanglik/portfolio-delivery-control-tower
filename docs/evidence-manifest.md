@@ -9,7 +9,8 @@ Generated for PR review on 2026-08-01. Each evidence layer has a separate claim 
 | Clean starting branch | Clone of public `main` at `51e032cf1401e7dbdab626836fd2ede39a5b0010`; initial status contained no changes |
 | Blueprint read completely | SHA-256 `E5F67CADFE15F74E6CA8F3AB9DD756A2629AFD3C569E59493F9B2DBAC8A3F2A3`; 17,736 bytes; 365 lines |
 | Failing-before control | Critical suite exit 1; 3/3 tests failed against the intentionally incomplete always-green baseline |
-| Passing-after suite | `npm.cmd run test`: 8 files passed, 17 tests passed, 0 failed |
+| Passing-after suite | `npm.cmd run test`: 8 files passed, 21 tests passed, 0 failed |
+| Review repair controls | Partial nested import rejected; rejected adapter snapshot preserves prior reference; tenant-key and role-helper mutations are killed |
 | Mutation control | `npm.cmd run test:mutation`: clean pass, disabled detector killed, restored pass; the entire control was repeated twice |
 | Type safety | `npm.cmd run typecheck`: exit 0 |
 | Static quality | `npm.cmd run lint`: exit 0, zero warnings after repair |
@@ -32,6 +33,7 @@ Local visual evidence is generated under ignored `output/playwright/`; it proves
 - Base SHA: `51e032cf1401e7dbdab626836fd2ede39a5b0010`.
 - Core implementation commit: `579d073959a19a940a3316f98a91857beeaf5b85`.
 - Product/UI/documentation commit: `e151ca26717a0ed5d299588db44b465376169510`.
+- Initial evidence commit: `69c3df09366b6860233a320c3619dbacc1a01e80`.
 - Pull request: `https://github.com/shrishmanglik/portfolio-delivery-control-tower/pull/1`.
 - Merge: NOT AUTHORIZED and not performed.
 
@@ -39,7 +41,7 @@ Local visual evidence is generated under ignored `output/playwright/`; it proves
 
 | Provider claim | State | Evidence boundary |
 |---|---|---|
-| GitHub PR validation | IN PROGRESS at manifest generation | Run `30700906026`; final status must be checked on the final PR head |
+| GitHub PR validation | VERIFIED on pre-review head only | Runs `30700906026` and `30700968475` succeeded; the repair head requires separate current-head verification |
 | Production deployment | NOT PERFORMED | Deployment was explicitly outside authority |
 | Supabase schema applied | NOT PERFORMED | SQL is a proposed source contract only |
 | Authentication / SSO configured | UNKNOWN | No provider inspection or mutation authorized |
@@ -56,3 +58,7 @@ Local visual evidence is generated under ignored `output/playwright/`; it proves
 - OPEN: the generic `feature-build` task contract still names retired persona `implementer`; current Development Studio charter supersedes it with typed personas.
 - OPEN: no project-specific backlog row existed. The founder-authorized work order supplied concrete scope, acceptance criteria, repository, branch, reviewer boundary, and proof conditions.
 - No canon file was modified because the collision surface was restricted to this isolated repository.
+
+## Distinct review repair
+
+The first independent reviewer returned `REVISE` after finding an unreachable mocked-import failure, an incomplete runtime import schema, and presence-only RLS tests. The builder repaired those boundaries; this statement is implementation history, not a review verdict on the repair. A separate reviewer must adjudicate the updated head.

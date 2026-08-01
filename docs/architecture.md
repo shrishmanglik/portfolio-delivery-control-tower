@@ -4,7 +4,7 @@
 
 The implemented vertical is a Next.js 16 application with a deterministic domain core, typed service boundaries, a synthetic in-memory adapter, and an unapplied Supabase persistence contract.
 
-The browser never decides portfolio health. `src/domain/health.ts` calculates it from explicit inputs and configured thresholds. Zod validates blocked work and separation of duties. Scope changes produce an explicit invalidation receipt. Review decisions produce canonical, stable local digests.
+The browser never decides portfolio health. `src/domain/health.ts` calculates it from explicit inputs and configured thresholds. Zod validates the complete nested import contract, blocked work, and separation of duties before typed data can cross the service boundary. Scope changes produce an explicit invalidation receipt. Review decisions produce canonical, stable local digests.
 
 ## Boundaries
 
@@ -21,8 +21,8 @@ synthetic adapter (implemented) | Supabase adapter (schema proposed, not connect
 - `app/api/v1/portfolio`: versioned read boundary over the synthetic accepted snapshot.
 - `app/api/v1/reviews`: validates authority and returns a review receipt or field errors.
 - `src/domain`: framework-free calculations, validation, invalidation, and receipt generation.
-- `src/store`: client-only demo orchestration; resetting cannot modify an external system.
-- `supabase/migrations`: proposed relational/tenant contract. It has not been applied anywhere.
+- `src/store`: client-only demo orchestration; mocked refreshes pass through the same import validator and retain the last accepted snapshot on failure.
+- `supabase/migrations`: proposed relational/tenant contract with composite tenant-parent keys and role-scoped writes. It has not been applied anywhere.
 
 ## Deterministic / AI / human split
 

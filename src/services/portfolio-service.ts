@@ -8,14 +8,18 @@ export function buildPortfolioRows(engagements: Engagement[]) {
   return engagements.map((engagement) => ({ engagement, health: calculatePortfolioHealth(toHealthInput(engagement)) }));
 }
 
-export function acceptSyntheticFinancialSnapshot(engagements: Engagement[], validatedAt: string): Engagement[] {
+export function buildSyntheticFinancialCandidate(engagements: Engagement[], validatedAt: string): unknown {
   return engagements.map((engagement) => ({ ...engagement, sourceAgeDays: 0, hasUnvalidatedFinancials: false, financial: { ...engagement.financial, sourceId: "source-finance-2026-08-01", validatedAt } }));
 }
 
 export function applyPortfolioImport(current: Engagement[], candidate: unknown): { accepted: boolean; data: Engagement[]; errors: Array<{ path: string; message: string }> } {
   const validation = validatePortfolioImport(candidate);
-  if (!validation.accepted) return { accepted: false, data: current, errors: validation.errors };
-  return { accepted: true, data: candidate as Engagement[], errors: [] };
+  if (!validation.accepted || !validation.data) return { accepted: false, data: current, errors: validation.errors };
+  return { accepted: true, data: validation.data, errors: [] };
+}
+
+export function validateSyntheticFinancialSnapshot(current: Engagement[], validatedAt: string) {
+  return applyPortfolioImport(current, buildSyntheticFinancialCandidate(current, validatedAt));
 }
 
 export type RecordDecisionResult = { ok: true; receipt: ReviewReceipt } | { ok: false; errors: Record<string, string> };

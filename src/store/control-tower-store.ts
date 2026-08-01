@@ -2,7 +2,7 @@
 
 import { create } from "zustand";
 import { engagements as seedEngagements } from "@/src/domain/fixtures";
-import { acceptSyntheticFinancialSnapshot, recordDecision } from "@/src/services/portfolio-service";
+import { recordDecision, validateSyntheticFinancialSnapshot } from "@/src/services/portfolio-service";
 import type { DecisionInput, Engagement, ReviewReceipt } from "@/src/domain/types";
 
 interface ControlTowerState {
@@ -28,7 +28,12 @@ export const useControlTowerStore = create<ControlTowerState>((set, get) => ({
     set({ refreshState: "loading", refreshError: null });
     try {
       await new Promise((resolve) => setTimeout(resolve, 250));
-      set({ engagements: acceptSyntheticFinancialSnapshot(get().engagements, new Date().toISOString()), refreshState: "complete" });
+      const result = validateSyntheticFinancialSnapshot(get().engagements, new Date().toISOString());
+      if (!result.accepted) {
+        set({ refreshState: "error", refreshError: `The mocked import failed validation (${result.errors[0]?.path ?? "unknown field"}). The last accepted snapshot remains active.` });
+        return;
+      }
+      set({ engagements: result.data, refreshState: "complete" });
     } catch {
       set({ refreshState: "error", refreshError: "The mocked import failed. The last accepted snapshot remains active." });
     }

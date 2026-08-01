@@ -11,7 +11,7 @@
           "type": "facts",
           "items": [
             {"state": "DONE", "claim": "A runnable, recruiter-inspectable vertical exists on the authorized public PR branch.", "evidence": "PR #1; Next.js production build emitted 14 routes."},
-            {"state": "VERIFIED", "claim": "Critical UNKNOWN behavior is adversarially proven.", "evidence": "Failing-before 3/3; passing-after 17/17; clean-mutant-restored control repeated twice."},
+            {"state": "VERIFIED", "claim": "Critical UNKNOWN behavior is adversarially proven.", "evidence": "Failing-before 3/3; passing-after 21/21; clean-mutant-restored control repeated twice."},
             {"state": "GAP", "claim": "Customers, demand, outcomes, revenue, deployment, and employer adoption remain unknown.", "evidence": "No provider, customer, or commercial evidence was introduced."}
           ]
         }
@@ -30,7 +30,7 @@
           "type": "table",
           "columns": ["Gate", "Result", "Status"],
           "rows": [
-            {"Gate": "Unit/integration", "Result": "17/17", "Status": "VERIFIED"},
+            {"Gate": "Unit/integration", "Result": "21/21", "Status": "VERIFIED"},
             {"Gate": "Mutation", "Result": "mutant killed twice", "Status": "VERIFIED"},
             {"Gate": "Typecheck / lint / build", "Result": "exit 0 / exit 0 / exit 0", "Status": "VERIFIED"},
             {"Gate": "Browser journey", "Result": "negative and positive authority paths", "Status": "VERIFIED"},
