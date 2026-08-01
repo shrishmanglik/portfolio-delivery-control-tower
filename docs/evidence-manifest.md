@@ -35,6 +35,8 @@ Local visual evidence is generated under ignored `output/playwright/`; it proves
 - Core implementation commit: `579d073959a19a940a3316f98a91857beeaf5b85`.
 - Product/UI/documentation commit: `e151ca26717a0ed5d299588db44b465376169510`.
 - Initial evidence commit: `69c3df09366b6860233a320c3619dbacc1a01e80`.
+- Distinct-review repair commit: `13d3b00a246734dad2e6873126ee29bddf29d380`.
+- Dependency-audit repair commit: `0f116fbb796998c42e120c3d213cdc28b9d3e4fc`.
 - Pull request: `https://github.com/shrishmanglik/portfolio-delivery-control-tower/pull/1`.
 - Merge: NOT AUTHORIZED and not performed.
 
@@ -42,7 +44,7 @@ Local visual evidence is generated under ignored `output/playwright/`; it proves
 
 | Provider claim | State | Evidence boundary |
 |---|---|---|
-| GitHub PR validation | VERIFIED on pre-review head only | Runs `30700906026` and `30700968475` succeeded; the repair head requires separate current-head verification |
+| GitHub PR validation | VERIFIED on final code/security head | Run `30701998770` completed real install, test, typecheck, lint, and build steps successfully on `0f116fbb796998c42e120c3d213cdc28b9d3e4fc` |
 | Production deployment | NOT PERFORMED | Deployment was explicitly outside authority |
 | Supabase schema applied | NOT PERFORMED | SQL is a proposed source contract only |
 | Authentication / SSO configured | UNKNOWN | No provider inspection or mutation authorized |
@@ -63,3 +65,5 @@ Local visual evidence is generated under ignored `output/playwright/`; it proves
 ## Distinct review repair
 
 The first independent reviewer returned `REVISE` after finding an unreachable mocked-import failure, an incomplete runtime import schema, and presence-only RLS tests. The builder repaired those boundaries; this statement is implementation history, not a review verdict on the repair. A separate reviewer must adjudicate the updated head.
+
+The initial re-review was correctly blocked when concurrent builder dependency work made the shared checkout mutable. The final reviewer is therefore directed to an immutable clean checkout. Four hosted validations ran over the branch lifecycle; the evidence-only second run was avoidable, while the third and fourth were corrective runs for review findings and dependency advisories. This exceeds the intended single-run CI budget and remains a recorded governance defect.
