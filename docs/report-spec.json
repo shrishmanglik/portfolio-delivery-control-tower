@@ -33,6 +33,7 @@
             {"Gate": "Unit/integration", "Result": "21/21", "Status": "VERIFIED"},
             {"Gate": "Mutation", "Result": "mutant killed twice", "Status": "VERIFIED"},
             {"Gate": "Typecheck / lint / build", "Result": "exit 0 / exit 0 / exit 0", "Status": "VERIFIED"},
+            {"Gate": "Dependency audit", "Result": "0 high or critical vulnerabilities", "Status": "VERIFIED"},
             {"Gate": "Browser journey", "Result": "negative and positive authority paths", "Status": "VERIFIED"},
             {"Gate": "Hosted PR validation", "Result": "final status pending", "Status": "UNVERIFIED"}
           ]

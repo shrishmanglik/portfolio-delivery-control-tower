@@ -83,6 +83,7 @@ npm.cmd run test:mutation
 npm.cmd run typecheck
 npm.cmd run lint
 npm.cmd run build
+npm.cmd audit --audit-level=high
 ```
 
 The mutation control disables the source-integrity detector, requires the critical suite to fail, restores the detector, and requires the clean control to pass. The repository also tests complete nested-import validation, rejected-import rollback, high-risk separation of duties, blocked-work completeness, scope invalidation, stable receipts, synthetic-data boundaries, tenant-bound foreign keys, role-aware RLS writes, and RLS-checker mutations.
@@ -91,6 +92,7 @@ The mutation control disables the source-integrity detector, requires the critic
 
 - Synthetic fixtures only; every account is visibly marked `(synthetic)`.
 - No credentials, provider configuration, customer identifiers, or production endpoints.
+- Patched PostCSS and Sharp transitive versions are pinned; the committed lockfile must return zero vulnerabilities at the high audit threshold.
 - Least-privilege tenant boundary in the proposed persistence contract.
 - RLS enabled for every proposed table; role-aware writes and tenant-bound parent keys are checked by a mutation-sensitive deterministic test.
 - High-risk self-approval rejected in Zod and by a proposed SQL constraint.

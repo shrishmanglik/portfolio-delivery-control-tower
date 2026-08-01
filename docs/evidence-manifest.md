@@ -21,6 +21,7 @@ Generated for PR review on 2026-08-01. Each evidence layer has a separate claim 
 | Responsive layout | 390 px viewport measured `clientWidth=390`, `scrollWidth=390`, `overflow=false` |
 | Browser console | Clean rerun returned 0 errors and 0 warnings |
 | Secret scan | Known-positive search matched; credential-pattern scan returned zero matches; no `.env` file present |
+| Dependency audit | Initial cold install reported 3 high transitive advisories; patched PostCSS/Sharp overrides reduced `npm.cmd audit --audit-level=high` to 0 vulnerabilities |
 
 Local visual evidence is generated under ignored `output/playwright/`; it proves local rendering only.
 
