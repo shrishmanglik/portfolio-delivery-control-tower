@@ -1,0 +1,49 @@
+{
+  "title": "Portfolio Delivery Control Tower — Build Evidence",
+  "subtitle": "Public-safe implementation and proof summary",
+  "author": "The AGI Studio Development Studio — BUILDER session",
+  "decisions_needed": [],
+  "sections": [
+    {
+      "title": "Outcome",
+      "blocks": [
+        {
+          "type": "facts",
+          "items": [
+            {"state": "DONE", "claim": "A runnable, recruiter-inspectable vertical exists on the authorized public PR branch.", "evidence": "PR #1; Next.js production build emitted 14 routes."},
+            {"state": "VERIFIED", "claim": "Critical UNKNOWN behavior is adversarially proven.", "evidence": "Failing-before 3/3; passing-after 17/17; clean-mutant-restored control repeated twice."},
+            {"state": "GAP", "claim": "Customers, demand, outcomes, revenue, deployment, and employer adoption remain unknown.", "evidence": "No provider, customer, or commercial evidence was introduced."}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Product surface",
+      "blocks": [
+        {"type": "list", "items": ["Portfolio, Work, Resources, Financials, Risks, Reviews, Learning, Proof, and integrated Engagement views", "Deterministic health, import rollback, scope invalidation, separation of duties, review receipts, and synthetic export", "Proposed Supabase schema with RLS on every table and append-only evidence records", "Public README plus architecture, operator, security/privacy, commercial-hypothesis, blueprint, and evidence documentation"]}
+      ]
+    },
+    {
+      "title": "Verification",
+      "blocks": [
+        {
+          "type": "table",
+          "columns": ["Gate", "Result", "Status"],
+          "rows": [
+            {"Gate": "Unit/integration", "Result": "17/17", "Status": "VERIFIED"},
+            {"Gate": "Mutation", "Result": "mutant killed twice", "Status": "VERIFIED"},
+            {"Gate": "Typecheck / lint / build", "Result": "exit 0 / exit 0 / exit 0", "Status": "VERIFIED"},
+            {"Gate": "Browser journey", "Result": "negative and positive authority paths", "Status": "VERIFIED"},
+            {"Gate": "Hosted PR validation", "Result": "final status pending", "Status": "UNVERIFIED"}
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Truth layers",
+      "blocks": [
+        {"type": "prose", "text": "Local test and browser evidence proves only the local candidate. GitHub repository metadata and commits prove public source state. No local artifact is offered as production deployment, provider configuration, customer, employer, or revenue proof."}
+      ]
+    }
+  ]
+}

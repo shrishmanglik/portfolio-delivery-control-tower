@@ -130,6 +130,7 @@ Complex client-service portfolios may pay for a review layer that finds cross-sy
 - Operator workflow and recovery: [docs/operator-runbook.md](docs/operator-runbook.md)
 - Security and privacy: [docs/security-privacy.md](docs/security-privacy.md)
 - Evidence manifest: [docs/evidence-manifest.md](docs/evidence-manifest.md) (completed at PR handoff)
+- Interactive build report: [docs/reports/latest.html](docs/reports/latest.html) (self-contained and offline-safe)
 
 ## License
 
