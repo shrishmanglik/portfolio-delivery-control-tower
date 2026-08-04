@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+:root {
+  --background: #f5f7f8;
+  --surface: #ffffff;
+  --surface-subtle: #eef2f3;
+  --border: #d9e0e2;
+  --text: #132326;
+  --muted: #52666b;
+  --teal: #0f766e;
+  --teal-strong: #0b5f59;
+  --amber: #a15c00;
+  --amber-bg: #fff7e6;
+  --red: #a52a2a;
+  --red-bg: #fff0f0;
+  --blue: #2056a8;
+  --blue-bg: #edf4ff;
+  --unknown: #5c536f;
+  --unknown-bg: #f4f0fb;
+  --shadow: 0 10px 30px rgba(19, 35, 38, 0.08);
+}
+
+* { box-sizing: border-box; }
+html { background: var(--background); color: var(--text); }
+body { margin: 0; min-width: 320px; background: var(--background); color: var(--text); font-family: Arial, Helvetica, sans-serif; }
+button, input, select, textarea { font: inherit; }
+button, a, input, select, textarea { outline-offset: 3px; }
+:focus-visible { outline: 3px solid #2f6fca; }
+a { color: inherit; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { scroll-behavior: auto !important; transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
+}
+
+.data-table { border-collapse: separate; border-spacing: 0; width: 100%; min-width: 980px; }
+.data-table th { background: #f4f7f7; border-bottom: 1px solid var(--border); color: var(--muted); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; padding: 0.78rem 0.9rem; position: sticky; text-align: left; text-transform: uppercase; top: 0; white-space: nowrap; z-index: 1; }
+.data-table td { border-bottom: 1px solid #e8edef; padding: 0.95rem 0.9rem; vertical-align: top; }
+.data-table tbody tr { cursor: pointer; transition: background-color 150ms ease; }
+.data-table tbody tr:hover, .data-table tbody tr[aria-selected="true"] { background: #eff8f7; }
+.data-table tbody tr:focus-visible { outline: 3px solid #2f6fca; outline-offset: -3px; }
+
+@media (max-width: 840px) {
+  .desktop-rail { display: none; }
+  .desktop-inspector { display: none; }
+  .app-main { padding: 0.9rem 0.75rem 5.5rem; }
+  .mobile-bottom-nav { display: grid; }
+}
+
+@media (min-width: 841px) {
+  .mobile-bottom-nav { display: none; }
+}

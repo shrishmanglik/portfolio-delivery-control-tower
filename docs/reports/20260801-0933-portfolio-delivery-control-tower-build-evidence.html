@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Portfolio Delivery Control Tower — Build Evidence</title><style>
+:root{--bg:#fbfaf7;--fg:#1a1a19;--mut:#6b6b66;--line:#e2e0d9;--card:#fff;--accent:#7a4a1f}
+@media(prefers-color-scheme:dark){:root{--bg:#16161a;--fg:#ececea;--mut:#9a9a94;--line:#2c2c33;--card:#1d1d22}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+ font:15px/1.6 ui-sans-serif,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:32px 20px 80px}
+header{border-bottom:2px solid var(--fg);padding-bottom:18px;margin-bottom:8px}
+h1{font-size:30px;margin:0 0 6px;letter-spacing:-.02em}
+.meta{color:var(--mut);font-size:13px}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0 8px;font-size:12px;color:var(--mut)}
+.badge{display:inline-block;padding:2px 8px;border-radius:99px;font-size:11px;
+ font-weight:700;letter-spacing:.04em;white-space:nowrap}
+.decide{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--accent);
+ border-radius:8px;padding:16px 18px;margin:22px 0}
+.decide h2{margin:0 0 10px;font-size:15px;text-transform:uppercase;letter-spacing:.08em;color:var(--accent)}
+.decide ol{margin:0;padding-left:22px}.decide li{margin:7px 0}
+.section{background:var(--card);border:1px solid var(--line);border-radius:8px;margin:12px 0}
+summary{cursor:pointer;padding:14px 18px;font-weight:650;font-size:16px;
+ display:flex;align-items:baseline;gap:10px;list-style:none}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"▸";margin-left:auto;color:var(--mut);transition:transform .15s}
+details[open] summary::after{transform:rotate(90deg)}
+summary em{font-weight:400;font-size:13px;color:var(--mut);font-style:normal}
+.secnum{color:var(--mut);font-variant-numeric:tabular-nums;font-size:13px;min-width:18px}
+.secbody{padding:0 18px 18px;border-top:1px solid var(--line)}
+h3{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:20px 0 8px}
+.tablewrap{overflow-x:auto;margin:8px 0}
+table{border-collapse:collapse;width:100%;font-size:14px}
+th{text-align:left;font-size:11px;text-transform:uppercase;letter-spacing:.06em;
+ color:var(--mut);border-bottom:1px solid var(--line);padding:8px 10px}
+td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:none}
+code{background:rgba(127,127,127,.14);padding:1.5px 5px;border-radius:4px;
+ font:13px/1.5 ui-monospace,Consolas,monospace}
+pre.evidence{background:rgba(127,127,127,.10);border-left:3px solid var(--line);
+ margin:8px 0 0;padding:10px 12px;overflow-x:auto;font:12px/1.55 ui-monospace,Consolas,monospace;
+ white-space:pre-wrap;color:var(--mut)}
+.fact{padding:12px 0;border-bottom:1px solid var(--line)}
+.fact:last-child{border-bottom:none}
+.facthead{display:flex;gap:10px;align-items:baseline}
+.facttitle{flex:1}
+ul.plain{margin:6px 0;padding-left:22px}ul.plain li{margin:5px 0}
+.filter{width:100%;max-width:320px;padding:7px 10px;margin:6px 0;border:1px solid var(--line);
+ border-radius:6px;background:var(--bg);color:var(--fg);font-size:13px}
+a{color:inherit;text-decoration:underline;text-decoration-color:var(--mut)}
+footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);
+ color:var(--mut);font-size:12px}
+@media print{.filter{display:none}.section{break-inside:avoid}details{open:true}}
+</style></head><body><div class="wrap">
+<header>
+  <h1>Portfolio Delivery Control Tower — Build Evidence</h1>
+  <div class="meta">Public-safe implementation and proof summary &middot; generated 2026-08-01 09:33 America/Toronto
+  &middot; The AGI Studio Development Studio — BUILDER session</div>
+</header>
+<div class="legend"><span class="badge" style="color:#0b6b3a;background:#d7f5e3" title="command run, output quoted">VERIFIED</span><span>command run, output quoted</span><span class="badge" style="color:#8a5a00;background:#fdf0d5" title="asserted, not proven">UNVERIFIED</span><span>asserted, not proven</span><span class="badge" style="color:#7a2020;background:#fbe0e0" title="unknown — do not act on this">GAP</span><span>unknown — do not act on this</span><span class="badge" style="color:#5a3a8a;background:#ece3fb" title="waiting on an external actor">BLOCKED</span><span>waiting on an external actor</span><span class="badge" style="color:#0b5f6b;background:#d5f2f6" title="complete and proven">DONE</span><span>complete and proven</span></div>
+
+<details class="section" open><summary><span class="secnum">1</span>Outcome</summary><div class="secbody"><div class="fact"><div class="facthead"><span class="badge" style="color:#0b5f6b;background:#d5f2f6" title="complete and proven">DONE</span><span class="facttitle">A runnable, recruiter-inspectable vertical exists on the authorized public PR branch.</span></div><pre class="evidence">PR #1; Next.js production build emitted 14 routes.</pre></div><div class="fact"><div class="facthead"><span class="badge" style="color:#0b6b3a;background:#d7f5e3" title="command run, output quoted">VERIFIED</span><span class="facttitle">Critical UNKNOWN behavior is adversarially proven.</span></div><pre class="evidence">Failing-before 3/3; passing-after 21/21; clean-mutant-restored control repeated twice.</pre></div><div class="fact"><div class="facthead"><span class="badge" style="color:#7a2020;background:#fbe0e0" title="unknown — do not act on this">GAP</span><span class="facttitle">Customers, demand, outcomes, revenue, deployment, and employer adoption remain unknown.</span></div><pre class="evidence">No provider, customer, or commercial evidence was introduced.</pre></div></div></details><details class="section" open><summary><span class="secnum">2</span>Product surface</summary><div class="secbody"><ul class="plain"><li>Portfolio, Work, Resources, Financials, Risks, Reviews, Learning, Proof, and integrated Engagement views</li><li>Deterministic health, import rollback, scope invalidation, separation of duties, review receipts, and synthetic export</li><li>Proposed Supabase schema with RLS on every table and append-only evidence records</li><li>Public README plus architecture, operator, security/privacy, commercial-hypothesis, blueprint, and evidence documentation</li></ul></div></details><details class="section" open><summary><span class="secnum">3</span>Verification</summary><div class="secbody"><div class="tablewrap"><table><thead><tr><th>Gate</th><th>Result</th><th>Status</th></tr></thead><tbody><tr><td>Unit/integration</td><td>21/21</td><td><span class="badge" style="color:#0b6b3a;background:#d7f5e3" title="command run, output quoted">VERIFIED</span></td></tr><tr><td>Mutation</td><td>mutant killed twice</td><td><span class="badge" style="color:#0b6b3a;background:#d7f5e3" title="command run, output quoted">VERIFIED</span></td></tr><tr><td>Typecheck / lint / build</td><td>exit 0 / exit 0 / exit 0</td><td><span class="badge" style="color:#0b6b3a;background:#d7f5e3" title="command run, output quoted">VERIFIED</span></td></tr><tr><td>Dependency audit</td><td>0 high or critical vulnerabilities</td><td><span class="badge" style="color:#0b6b3a;background:#d7f5e3" title="command run, output quoted">VERIFIED</span></td></tr><tr><td>Browser journey</td><td>negative and positive authority paths</td><td><span class="badge" style="color:#0b6b3a;background:#d7f5e3" title="command run, output quoted">VERIFIED</span></td></tr><tr><td>Hosted PR validation</td><td>final status pending</td><td><span class="badge" style="color:#8a5a00;background:#fdf0d5" title="asserted, not proven">UNVERIFIED</span></td></tr></tbody></table></div></div></details><details class="section" open><summary><span class="secnum">4</span>Truth layers</summary><div class="secbody"><p>Local test and browser evidence proves only the local candidate. GitHub repository metadata and commits prove public source state. No local artifact is offered as production deployment, provider configuration, customer, employer, or revenue proof.</p></div></details>
+<footer>
+  Self-contained artifact — no external resources; renders offline.
+  Claims marked UNVERIFIED or GAP are not proven; do not build on them without verifying.
+  Canon remains <code>Claude.md</code> and <code>vcos/mds-kernel/</code>; this report is derived.
+  <br>Press <code>Ctrl/Cmd&nbsp;+&nbsp;E</code> to expand or collapse all sections.
+</footer>
+</div><script>
+function filterTable(input){
+  const q=input.value.toLowerCase();
+  const rows=input.parentElement.querySelectorAll('tbody tr');
+  rows.forEach(r=>{r.style.display=r.textContent.toLowerCase().includes(q)?'':'none';});
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='e'&&(e.metaKey||e.ctrlKey)){
+    e.preventDefault();
+    const all=document.querySelectorAll('details');
+    const anyClosed=[...all].some(d=>!d.open);
+    all.forEach(d=>d.open=anyClosed);
+  }
+});
+</script></body></html>
