@@ -4,7 +4,9 @@ An evidence-bound operating workspace for portfolio leaders to detect when commi
 
 This repository is a real, runnable product vertical—not a landing-page mockup. It ships a deterministic health engine, typed service/API boundaries, synthetic adapters, an accessible multi-view interface, authority controls, scope invalidation, audit receipts, tests, and operator documentation.
 
-> Evidence boundary: the workflow and data are synthetic. This project does not claim employer affiliation, customer demand, production deployment, commercial outcomes, users, revenue, or access to any target company's systems or data.
+> Evidence boundary: the deployed workflow and data are synthetic. This project does not claim employer affiliation, customer demand, commercial outcomes, users, revenue, or access to any target company's systems or data.
+
+**Live product:** https://portfolio-delivery-control-tower.vercel.app
 
 ## The problem
 
@@ -66,7 +68,6 @@ AI cannot alter calculations, approvals, source history, or receipts.
 ```powershell
 git clone https://github.com/shrishmanglik/portfolio-delivery-control-tower.git
 cd portfolio-delivery-control-tower
-git switch dev/portfolio-delivery-control-tower-initial-build
 npm.cmd ci
 npm.cmd run dev
 ```
@@ -83,7 +84,7 @@ npm.cmd run test:mutation
 npm.cmd run typecheck
 npm.cmd run lint
 npm.cmd run build
-npm.cmd audit --audit-level=high
+npm.cmd audit
 ```
 
 The mutation control disables the source-integrity detector, requires the critical suite to fail, restores the detector, and requires the clean control to pass. The repository also tests complete nested-import validation, rejected-import rollback, high-risk separation of duties, blocked-work completeness, scope invalidation, stable receipts, synthetic-data boundaries, tenant-bound foreign keys, role-aware RLS writes, and RLS-checker mutations.
@@ -91,8 +92,8 @@ The mutation control disables the source-integrity detector, requires the critic
 ## Security and privacy
 
 - Synthetic fixtures only; every account is visibly marked `(synthetic)`.
-- No credentials, provider configuration, customer identifiers, or production endpoints.
-- Patched PostCSS and Sharp transitive versions are pinned; the committed lockfile must return zero vulnerabilities at the high audit threshold.
+- No credentials, customer identifiers, or real external-system endpoints are shipped in the application.
+- Patched PostCSS and Sharp transitive versions are pinned; the committed lockfile must return zero known vulnerabilities in the full npm audit.
 - Least-privilege tenant boundary in the proposed persistence contract.
 - RLS enabled for every proposed table; role-aware writes and tenant-bound parent keys are checked by a mutation-sensitive deterministic test.
 - High-risk self-approval rejected in Zod and by a proposed SQL constraint.
@@ -115,7 +116,8 @@ Complex client-service portfolios may pay for a review layer that finds cross-sy
 | Supabase relational schema and RLS policies | Proposed source contract; not applied |
 | Authentication, SSO, external adapters, provider observability | Proposed / `UNKNOWN` |
 | Runtime AI assistance | Not implemented |
-| Deployment, customers, demand, revenue, outcomes | `UNKNOWN` |
+| Vercel deployment | Implemented at `portfolio-delivery-control-tower.vercel.app`; synthetic demonstration only |
+| Customers, demand, revenue, outcomes | `UNKNOWN` |
 
 ## Roadmap
 

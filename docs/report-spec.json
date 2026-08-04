@@ -10,9 +10,9 @@
         {
           "type": "facts",
           "items": [
-            {"state": "DONE", "claim": "A runnable, recruiter-inspectable vertical exists on the authorized public PR branch.", "evidence": "PR #1; Next.js production build emitted 14 routes."},
+            {"state": "DONE", "claim": "A runnable, recruiter-inspectable vertical is merged and publicly deployed.", "evidence": "PR #1 merged; Vercel deployment READY; Next.js emitted 14 routes."},
             {"state": "VERIFIED", "claim": "Critical UNKNOWN behavior is adversarially proven.", "evidence": "Failing-before 3/3; passing-after 21/21; clean-mutant-restored control repeated twice."},
-            {"state": "GAP", "claim": "Customers, demand, outcomes, revenue, deployment, and employer adoption remain unknown.", "evidence": "No provider, customer, or commercial evidence was introduced."}
+            {"state": "GAP", "claim": "Customers, demand, outcomes, revenue, and employer adoption remain unknown.", "evidence": "Deployment proves public availability only; no customer or commercial evidence was introduced."}
           ]
         }
       ]
@@ -33,9 +33,10 @@
             {"Gate": "Unit/integration", "Result": "21/21", "Status": "VERIFIED"},
             {"Gate": "Mutation", "Result": "mutant killed twice", "Status": "VERIFIED"},
             {"Gate": "Typecheck / lint / build", "Result": "exit 0 / exit 0 / exit 0", "Status": "VERIFIED"},
-            {"Gate": "Dependency audit", "Result": "0 high or critical vulnerabilities", "Status": "VERIFIED"},
+            {"Gate": "Dependency audit", "Result": "full audit: 0 vulnerabilities", "Status": "VERIFIED"},
             {"Gate": "Browser journey", "Result": "negative and positive authority paths", "Status": "VERIFIED"},
-            {"Gate": "Hosted PR validation", "Result": "real steps succeeded on code/security head 0f116fb", "Status": "VERIFIED"}
+            {"Gate": "Hosted PR validation", "Result": "real steps succeeded on merged head 8d4fd61", "Status": "VERIFIED"},
+            {"Gate": "Production deployment", "Result": "Vercel READY; live journey passed", "Status": "VERIFIED"}
           ]
         }
       ]
@@ -43,7 +44,7 @@
     {
       "title": "Truth layers",
       "blocks": [
-        {"type": "prose", "text": "Local test and browser evidence proves only the local candidate. GitHub repository metadata and commits prove public source state. No local artifact is offered as production deployment, provider configuration, customer, employer, or revenue proof."}
+        {"type": "prose", "text": "Local tests prove the source candidate. GitHub proves committed and merged source. Vercel provider inspection plus live-browser execution prove public deployment. None of those layers proves customers, employer affiliation, demand, revenue, adoption, or outcomes."}
       ]
     }
   ]
