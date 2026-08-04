@@ -34,7 +34,7 @@ synthetic adapter (implemented) | Supabase adapter (schema proposed, not connect
 
 ## Reversibility
 
-The live demo is fixture-backed and can reset without loss. A rejected import leaves the last accepted array unchanged. Proposed database receipts use linked corrections and deny updates/deletes to authenticated users. No migration was run and no provider was changed.
+The deployed demo is fixture-backed and can reset without loss. A rejected import leaves the last accepted array unchanged. Proposed database receipts use linked corrections and deny updates/deletes to authenticated users. Vercel hosts only the synthetic Next.js application; no Supabase migration or external adapter was activated.
 
 ## Rejected alternatives
 

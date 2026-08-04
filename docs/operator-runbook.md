@@ -16,7 +16,7 @@
 - Render/runtime failure: the application error boundary states that the accepted state was preserved and offers retry.
 - Rejected high-risk decision: no receipt is emitted; field-level authority errors remain visible.
 - Demo rollback: **Reset synthetic demo** restores the original accepted fixtures and removes local receipts.
-- Provider outage: not exercised because no provider is connected; the interface contract requires last-validated values plus timestamps and disables unsupported freshness claims.
+- Hosting outage: retry the canonical Vercel URL and inspect the named deployment before making an availability claim. External source-provider outage remains unexercised because no project, resource, finance, authentication, or database adapter is connected; the interface contract requires last-validated values plus timestamps and disables unsupported freshness claims.
 
 ## Local commands
 
